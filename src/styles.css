@@ -32,3 +32,11 @@ header, footer {
 main {
     flex: 1;
 }
+
+a {
+    text-decoration: none;
+}
+
+h2, a:hover, a:active {
+    color: #ec6533 !important;
+}
