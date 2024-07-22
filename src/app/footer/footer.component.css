@@ -1,24 +1,24 @@
-a,
-p {
+footer a,
+footer p {
   display: inline;
   padding: 0 0.5rem;
   vertical-align: middle;
 }
 
-a {
+footer a {
   text-decoration: none;
   color: #fff;
 }
 
-a:hover,
-a:active {
+footer a:hover,
+footer a:active {
   text-decoration: underline;
 }
 
-a img {
+footer a img {
   height: 1.5rem;
 }
 
-.end {
+footer .end {
   float: inline-end;
 }
