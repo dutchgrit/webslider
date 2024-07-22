@@ -4,7 +4,7 @@ footer p {
   padding: 0;
   margin-right: 5px;
   vertical-align: middle;
-  color: #FFF;
+  color: #fff;
 }
 
 footer p::before {
@@ -18,4 +18,25 @@ footer a img {
 
 footer .end {
   float: inline-end;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+img {
+  width: 100%;
+}
+
+p a {
+  color: #007bff;
+}
+
+ol {
+  list-style-type: decimal;
+  margin-left: 2.5rem;
+}
+
+ol ol {
+  list-style-type: lower-alpha;
 }
