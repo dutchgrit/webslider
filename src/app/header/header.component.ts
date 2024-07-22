@@ -6,8 +6,13 @@ import { PopupComponent } from '../popup/popup.component';
   standalone: true,
   imports: [PopupComponent],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrl: './header.component.css',
 })
 export class HeaderComponent {
   showSettings: boolean = false;
+  showForm: boolean = false;
+
+  startSlideShow() {
+    throw new Error('Method not implemented.');
+  }
 }
