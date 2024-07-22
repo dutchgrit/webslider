@@ -9,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
   today: number = new Date().getFullYear();
+
+  showAbout(event: Event): void {
+    event.preventDefault();
+    console.log('Show about popup');
+  }
 }
