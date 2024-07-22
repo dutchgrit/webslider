@@ -19,6 +19,8 @@
   color: #000;
   width: 90%;
   max-width: 800px;
+  max-height: 90%;
+  overflow: auto;
 }
 
 .header {
