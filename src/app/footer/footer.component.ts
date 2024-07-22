@@ -4,7 +4,7 @@ import { PopupComponent } from '../popup/popup.component';
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [ PopupComponent],
+  imports: [PopupComponent],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css'],
 })
@@ -16,5 +16,9 @@ export class FooterComponent {
     event.preventDefault();
     event.stopPropagation();
     this.showPopup = true;
+  }
+
+  hide(): void {
+    this.showPopup = false;
   }
 }

@@ -8,7 +8,7 @@
   </a>
 </footer>
 
-<app-popup [visible]="showPopup">
+<app-popup [visible]="showPopup" (closed)="hide()">
   <h2>About</h2>
   <p>This is a popup with information about Dutch Grit.</p>
 </app-popup>

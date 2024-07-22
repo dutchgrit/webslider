@@ -1,4 +1,4 @@
-import { Component, HostListener, Input } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,9 +10,11 @@ import { CommonModule } from '@angular/common';
 })
 export class PopupComponent {
   @Input() visible: boolean = false;
+  @Output() closed = new EventEmitter<void>();
 
   close(): void {
     this.visible = false;
+    this.closed.emit();
   }
 
   @HostListener('document:click', ['$event'])
