@@ -1,9 +1,15 @@
 footer a,
 footer p {
   display: inline;
-  padding: 0 0.5rem;
+  padding: 0;
+  margin-right: 5px;
   vertical-align: middle;
   color: #FFF;
+}
+
+footer p::before {
+  content: " |";
+  margin-right: 8px;
 }
 
 footer a img {
