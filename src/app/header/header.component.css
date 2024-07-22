@@ -1,4 +1,5 @@
 nav {
+    display: flex;
     direction: rtl;
 }
 
@@ -10,6 +11,8 @@ button {
     color: #FFF;
     border-radius: .125rem;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
@@ -18,4 +21,40 @@ button:hover {
 
 button:active {
     background: #d9551d;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+}
+
+.dropdown-content a, .dropdown-content label {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+
+.dropdown-content a:hover, .dropdown-content label:hover {
+    background-color: #f1f1f1;
+    color: #ec6533;
+}
+
+.dropdown-content input[type="file"] {
+    display: none;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }

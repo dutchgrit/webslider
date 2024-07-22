@@ -2,7 +2,15 @@
     <nav>
         <button (click)="startSlideShow()" aria-label="Start slideshow">Start slideshow</button>
         <button (click)="showForm = !showForm" aria-label="Add slide">Add slide</button>
-        <button (click)="showSettings = !showSettings" aria-label="settings">Settings</button>
+        <div class="dropdown">
+            <button aria-label="Settings">Settings</button>
+            <div class="dropdown-content">
+                <a href="#" (click)="downloadSlides()">Download Slides</a>
+                <label for="uploadSlides">Import Slides</label>
+                <input type="file" id="uploadSlides" (change)="importSlides($event)">
+                <a href="#" (click)="deleteSlides()">Delete All Slides</a>
+            </div>
+        </div>
     </nav>
 
     <app-popup [(visible)]="showSettings" title="Settings">
