@@ -16,3 +16,7 @@ a:hover, a:active {
 a img {
     height: 1.5rem;
 }
+
+.end {
+    float: inline-end;
+}
