@@ -1,5 +1,5 @@
 <footer>
-  <a href="#about" (click)="showAbout($event)" aria-label="about">About</a>
+  <a href="#about" (click)="show($event)" aria-label="about">About</a>
 
   <p>Dutch Grit {{ today }}</p>
 
@@ -8,11 +8,7 @@
   </a>
 </footer>
 
-<!-- About Popup -->
-<div *ngIf="showAboutPopup" class="about-popup">
-  <div class="popup-content">
-    <h2>About</h2>
-    <p>This is a popup with information about Dutch Grit.</p>
-    <button (click)="closeAbout()" aria-label="close about">&times;</button>
-  </div>
-</div>
+<app-popup [visible]="showPopup">
+  <h2>About</h2>
+  <p>This is a popup with information about Dutch Grit.</p>
+</app-popup>
