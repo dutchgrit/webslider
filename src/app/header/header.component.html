@@ -1,8 +1,8 @@
 <header>
     <nav>
-        <button (click)="showSettings = !showSettings" aria-label="settings">Settings</button>
-        <button (click)="showForm = !showForm" aria-label="Add slide">Add slide</button>
         <button (click)="startSlideShow()" aria-label="Start slideshow">Start slideshow</button>
+        <button (click)="showForm = !showForm" aria-label="Add slide">Add slide</button>
+        <button (click)="showSettings = !showSettings" aria-label="settings">Settings</button>
     </nav>
 
     <app-popup [(visible)]="showSettings" title="Settings">
