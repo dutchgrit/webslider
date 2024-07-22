@@ -5,3 +5,12 @@ html, body {
     background-color: #1c1c1b;
     color: #FFF;
 }
+
+header, main, footer {
+    margin: auto;
+    padding: .5rem 1rem;
+}
+
+header, footer {
+    background-color: #323231;
+}
