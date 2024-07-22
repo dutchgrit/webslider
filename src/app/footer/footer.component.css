@@ -1,4 +1,18 @@
 a, p { 
     display: inline;
     padding: 0 .5rem;
+    vertical-align: middle;
+}
+
+a {
+    text-decoration: none;
+    color: #FFF;
+}
+
+a:hover, a:active {
+    text-decoration: underline;
+}
+
+a img {
+    height: 1.5rem;
 }
