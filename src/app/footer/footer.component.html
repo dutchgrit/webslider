@@ -1,14 +1,12 @@
 <footer>
   <a href="#about" (click)="show($event)" aria-label="about">About</a>
-
   <p>Dutch Grit {{ today }}</p>
-
-  <a class="end" href="https://www.dutchgrit.nl/nl/home/" target="blank">
+  <a class="end" href="https://www.dutchgrit.nl/nl/home/" target="_blank">
     <img src="/img/dutchgrit-logo-variatie2-500.png" alt="Dutch Grit logo" />
   </a>
 </footer>
 
-<app-popup [visible]="showPopup" (closed)="hide()">
+<app-popup [(visible)]="showPopup">
   <h2>About</h2>
   <p>This is a popup with information about Dutch Grit.</p>
 </app-popup>

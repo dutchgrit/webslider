@@ -14,11 +14,6 @@ export class FooterComponent {
 
   show(event: Event): void {
     event.preventDefault();
-    event.stopPropagation();
     this.showPopup = true;
-  }
-
-  hide(): void {
-    this.showPopup = false;
   }
 }

@@ -6,15 +6,15 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './popup.component.html',
-  styleUrl: './popup.component.css',
+  styleUrls: ['./popup.component.css'],
 })
 export class PopupComponent {
   @Input() visible: boolean = false;
-  @Output() closed = new EventEmitter<void>();
+  @Output() visibleChange = new EventEmitter<boolean>();
 
   close(): void {
     this.visible = false;
-    this.closed.emit();
+    this.visibleChange.emit(this.visible);
   }
 
   @HostListener('document:click', ['$event'])

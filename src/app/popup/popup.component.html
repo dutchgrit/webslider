@@ -1,6 +1,6 @@
-<div *ngIf="visible" class="popup">
-  <div class="content">
-    <button class="close" (click)="close()" aria-label="close">&times;</button>
+<div *ngIf="visible" class="overlay">
+  <div class="content" (click)="$event.stopPropagation()">
+    <button class="close" (click)="close()">&times;</button>
     <ng-content></ng-content>
   </div>
 </div>
