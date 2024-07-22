@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class PopupComponent {
   @Input() visible: boolean = false;
+  @Input() title: string = '';
   @Output() visibleChange = new EventEmitter<boolean>();
 
   close(): void {

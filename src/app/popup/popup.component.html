@@ -1,6 +1,9 @@
 <div *ngIf="visible" class="overlay">
   <div class="content" (click)="$event.stopPropagation()">
-    <button class="close" (click)="close()">&times;</button>
+    <div class="header">
+      <h2>{{ title }}</h2>
+      <a href="#" aria-label="close" (click)="close()">&times;</a>
+    </div>
     <ng-content></ng-content>
   </div>
 </div>
