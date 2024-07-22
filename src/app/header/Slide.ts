@@ -1,5 +1,5 @@
 export interface ISlide {
     url: string;
-    time: number;
+    slideTime: number;
     transition: string;
 }
