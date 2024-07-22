@@ -7,3 +7,12 @@
     <img src="/img/dutchgrit-logo-variatie2-500.png" alt="Dutch Grit logo" />
   </a>
 </footer>
+
+<!-- About Popup -->
+<div *ngIf="showAboutPopup" class="about-popup">
+  <div class="popup-content">
+    <h2>About</h2>
+    <p>This is a popup with information about Dutch Grit.</p>
+    <button (click)="closeAbout()">Close</button>
+  </div>
+</div>
