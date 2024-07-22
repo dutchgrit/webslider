@@ -1,3 +1,10 @@
 <header>
-    <p>header works!</p>
+    <nav>
+        <button (click)="showSettings = !showSettings" aria-label="settings">Settings</button>
+
+    </nav>
+
+    <app-popup [(visible)]="showSettings" title="Settings">
+        <p>header works!</p>
+    </app-popup>
 </header>
