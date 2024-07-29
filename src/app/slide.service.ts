@@ -70,6 +70,10 @@ export class SlideService {
     const slides = this.slidesSubject.value;
     if (slides.length === 0) return;
 
+    if (this.slideInterval) {
+      clearInterval(this.slideInterval);
+    }
+
     this.slideshowRunningSubject.next(true);
     this.currentSlideIndex = 0;
     callback(slides[this.currentSlideIndex]);

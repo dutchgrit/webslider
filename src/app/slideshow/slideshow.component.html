@@ -1,7 +1,9 @@
-<div *ngIf="currentSlide" class="slide-container">
-  <iframe
-    [src]="currentSlide.url | safeUrl"
-    class="slide"
-    [class]="currentSlide.transition"
-  ></iframe>
+<div class="slide-container">
+  <ng-container *ngFor="let slide of slides; let i = index">
+    <iframe
+      [src]="slide.url | safeUrl"
+      class="slide"
+      [ngClass]="{ 'visible': currentSlideIndex === i, 'hidden': currentSlideIndex !== i }"
+    ></iframe>
+  </ng-container>
 </div>

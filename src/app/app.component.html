@@ -1,7 +1,7 @@
 <app-header *ngIf="!slideService.isSlideshowRunning()"/>
 
 <main>
-  <app-slideshow />
+  <app-slideshow *ngIf="slideService.isSlideshowRunning()" />
   <app-slide-list *ngIf="!slideService.isSlideshowRunning()" />
 </main>
 
