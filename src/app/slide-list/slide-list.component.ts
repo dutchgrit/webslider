@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SlideService } from '../slide.service';
 import { ISlide } from '../ISlide';
+import { SafeUrlPipe } from './safe-url.pipe';
 
 @Component({
   selector: 'app-slide-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [ CommonModule, SafeUrlPipe ],
   templateUrl: './slide-list.component.html',
   styleUrl: './slide-list.component.css'
 })

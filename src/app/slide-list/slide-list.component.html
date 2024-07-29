@@ -1,14 +1,14 @@
 <div *ngIf="slides.length > 0; else noSlides">
-    <h2>Slide List</h2>
-    <ul>
-      <li *ngFor="let slide of slides">
-        <img [src]="slide.url" alt="Slide Image" width="100">
+  <div class="slide-grid">
+    <div class="slide-item" *ngFor="let slide of slides">
+      <iframe [src]="slide.url | safeUrl" width="200" height="150"></iframe>
+      <div class="slide-info">
         <p>Slide Time: {{ slide.slideTime }} seconds</p>
         <p>Transition: {{ slide.transition }}</p>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
-  <ng-template #noSlides>
-    <p>No slides available. Please add some slides.</p>
-  </ng-template>
-  
+</div>
+<ng-template #noSlides>
+  <p>No slides available. Please add some slides.</p>
+</ng-template>

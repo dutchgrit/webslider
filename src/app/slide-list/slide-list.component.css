@@ -1,0 +1,24 @@
+.slide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.slide-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 1rem;
+  background-color: #f9f9f9;
+}
+
+.slide-item iframe {
+  border: none;
+}
+
+.slide-info {
+  margin-top: 0.5rem;
+  text-align: center;
+}
