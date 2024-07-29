@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SlideService } from '../slide.service';
 import { ISlide } from '../ISlide';
@@ -10,16 +10,14 @@ import { ISlide } from '../ISlide';
   templateUrl: './slide-list.component.html',
   styleUrl: './slide-list.component.css'
 })
-export class SlideListComponent {
+export class SlideListComponent implements OnInit {
   slides: ISlide[] = [];
 
   constructor(private slideService: SlideService) {}
 
   ngOnInit(): void {
-    this.loadSlides();
-  }
-
-  loadSlides(): void {
-    this.slides = this.slideService.getSlides();
+    this.slideService.slides$.subscribe((slides) => {
+      this.slides = slides;
+    });
   }
 }

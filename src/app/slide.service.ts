@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { ISlide } from './ISlide';
 
 @Injectable({
@@ -6,7 +7,8 @@ import { ISlide } from './ISlide';
 })
 export class SlideService {
   private localStorageKey = 'slides';
-  private slides: ISlide[] = [];
+  private slidesSubject: BehaviorSubject<ISlide[]> = new BehaviorSubject<ISlide[]>([]);
+  slides$ = this.slidesSubject.asObservable();
 
   constructor() {
     this.loadSlidesFromLocalStorage();
@@ -16,45 +18,44 @@ export class SlideService {
   private loadSlidesFromLocalStorage(): void {
     const storedSlides = localStorage.getItem(this.localStorageKey);
     if (storedSlides) {
-      this.slides = JSON.parse(storedSlides);
+      this.slidesSubject.next(JSON.parse(storedSlides));
     }
   }
 
   // Save slides to local storage
   private saveSlidesToLocalStorage(): void {
-    localStorage.setItem(this.localStorageKey, JSON.stringify(this.slides));
+    localStorage.setItem(this.localStorageKey, JSON.stringify(this.slidesSubject.value));
   }
 
   // Get all slides
   getSlides(): ISlide[] {
-    return [...this.slides];
+    return [...this.slidesSubject.value];
   }
 
   // Add a new slide
   addSlide(slide: ISlide): void {
-    this.slides.push(slide);
+    const updatedSlides = [...this.slidesSubject.value, slide];
+    this.slidesSubject.next(updatedSlides);
     this.saveSlidesToLocalStorage();
   }
 
   // Remove a slide by index
   removeSlide(index: number): void {
-    if (index >= 0 && index < this.slides.length) {
-      this.slides.splice(index, 1);
-      this.saveSlidesToLocalStorage();
-    }
+    const updatedSlides = this.slidesSubject.value.filter((_, i) => i !== index);
+    this.slidesSubject.next(updatedSlides);
+    this.saveSlidesToLocalStorage();
   }
 
   // Update a slide by index
   updateSlide(index: number, newSlide: ISlide): void {
-    if (index >= 0 && index < this.slides.length) {
-      this.slides[index] = newSlide;
-      this.saveSlidesToLocalStorage();
-    }
+    const updatedSlides = this.slidesSubject.value.map((slide, i) => (i === index ? newSlide : slide));
+    this.slidesSubject.next(updatedSlides);
+    this.saveSlidesToLocalStorage();
   }
 
   // Replace the entire list of slides
   replaceSlides(newSlides: ISlide[]): void {
-    this.slides = [...newSlides];
+    this.slidesSubject.next(newSlides);
     this.saveSlidesToLocalStorage();
   }
 }
