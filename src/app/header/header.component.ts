@@ -22,8 +22,15 @@ export class HeaderComponent {
   }
 
   downloadSlides() {
-    // Implement download slides functionality
-    throw new Error('Method not implemented.');
+    const slides = this.slideService.getSlides();
+    const slidesJson = JSON.stringify(slides, null, 2);
+    const blob = new Blob([slidesJson], { type: 'application/json' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'slides.json';
+    a.click();
+    window.URL.revokeObjectURL(url);
   }
 
   importSlides(event: Event) {
