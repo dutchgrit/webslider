@@ -16,34 +16,42 @@ export class SlideshowComponent implements OnInit, OnDestroy {
   slides: ISlide[] = [];
   currentSlideIndex: number = 0;
   isSlideshowRunning: boolean = false;
-  private slideshowSubscription: Subscription | null = null;
+  private slidesSubscription: Subscription | null = null;
+  private slideshowRunningSubscription: Subscription | null = null;
 
   constructor(private slideService: SlideService) {}
 
   ngOnInit() {
-    this.slides = this.slideService.getSlides();
-
-    this.slideshowSubscription = this.slideService.slideshowRunning$.subscribe((isRunning) => {
-      this.isSlideshowRunning = isRunning;
-      if (isRunning) {
+    this.slidesSubscription = this.slideService.slides$.subscribe(slides => {
+      this.slides = slides;
+      if (this.slides.length > 0 && !this.isSlideshowRunning) {
         this.startSlideShow();
-      } else {
-        this.stopSlideShow();
       }
+    });
+
+    this.slideshowRunningSubscription = this.slideService.slideshowRunning$.subscribe(isRunning => {
+      this.isSlideshowRunning = isRunning;
     });
   }
 
   ngOnDestroy() {
-    if (this.slideshowSubscription) {
-      this.slideshowSubscription.unsubscribe();
+    if (this.slidesSubscription) {
+      this.slidesSubscription.unsubscribe();
+    }
+    if (this.slideshowRunningSubscription) {
+      this.slideshowRunningSubscription.unsubscribe();
     }
     this.slideService.stopSlideShow();
   }
 
+  updateSlide(slide: ISlide) {
+    this.currentSlideIndex = this.slides.findIndex(s => s === slide);
+  }
+
   startSlideShow() {
-    this.slideService.startSlideShow((slide) => {
-      this.currentSlideIndex = this.slides.findIndex(s => s === slide);
-    });
+    if (!this.isSlideshowRunning) {
+      this.slideService.startSlideShow(this.updateSlide.bind(this));
+    }
   }
 
   stopSlideShow() {
