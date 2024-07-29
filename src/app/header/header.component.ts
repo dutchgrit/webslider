@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { PopupComponent } from '../popup/popup.component';
-import { ISlide } from './Slide';
+import { ISlide } from '../ISlide';
 
 @Component({
   selector: 'app-header',
