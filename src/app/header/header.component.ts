@@ -11,7 +11,6 @@ import { ISlide } from '../ISlide';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  showSettings: boolean = false;
   showForm: boolean = false;
 
   constructor(private slideService: SlideService) {}
