@@ -1,6 +1,6 @@
 .slide-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1rem;
 }
 
@@ -21,11 +21,12 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 200%;
-  height: 200%;
+  width: 500%;
+  height: 500%;
   border: none;
-  transform: scale(0.5);
+  transform: scale(0.2);
   transform-origin: 0 0;
+  pointer-events: none;
 }
 
 .slide-time {
