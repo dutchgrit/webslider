@@ -37,6 +37,7 @@ export class SlideListComponent implements OnInit {
 
   drop(event: CdkDragDrop<ISlide[]>): void {
     moveItemInArray(this.slides, event.previousIndex, event.currentIndex);
+    this.slideService.replaceSlides(this.slides);
   }
 
   editSlide(index: number): void {
@@ -47,9 +48,9 @@ export class SlideListComponent implements OnInit {
 
   onSubmit(): void {
     if (this.editIndex !== null) {
-      this.slides[this.editIndex] = { ...this.newSlide };
+      this.slideService.updateSlide(this.editIndex, this.newSlide);
     } else {
-      this.slides.push({ ...this.newSlide });
+      this.slideService.addSlide(this.newSlide);
     }
     this.showForm = false;
     this.newSlide = { url: '', slideTime: 0, transition: 'fade' };
