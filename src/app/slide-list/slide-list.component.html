@@ -1,7 +1,7 @@
 <div *ngIf="slides.length > 0; else noSlides">
   <h2>Slide List</h2>
-  <div class="slide-grid">
-    <div class="slide-item" *ngFor="let slide of slides">
+  <div class="slide-grid" cdkDropList (cdkDropListDropped)="drop($event)">
+    <div class="slide-item" *ngFor="let slide of slides; let i = index" cdkDrag>
       <div class="slide-container">
         <iframe [src]="slide.url | safeUrl" width="200" height="150"></iframe>
         <div class="slide-time">{{ slide.slideTime }} seconds</div>
