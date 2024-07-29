@@ -1,1 +1,7 @@
-<p>slideshow works!</p>
+<div *ngIf="currentSlide" class="slide-container">
+  <iframe
+    [src]="currentSlide.url | safeUrl"
+    class="slide"
+    [class]="currentSlide.transition"
+  ></iframe>
+</div>

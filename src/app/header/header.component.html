@@ -1,7 +1,9 @@
 <header>
   <nav>
     <button (click)="startSlideShow()" aria-label="Start slideshow">
-      {{ isSlideshowRunning ? "Stop slideshow" : "Start slideshow" }}
+      {{
+        slideService.isSlideshowRunning() ? "Stop slideshow" : "Start slideshow"
+      }}
     </button>
     <button (click)="showForm = !showForm" aria-label="Add slide">
       Add slide
@@ -57,7 +59,3 @@
     </form>
   </app-popup>
 </header>
-
-<div *ngIf="currentSlide" class="slide-container">
-  <iframe [src]="currentSlide.url | safeUrl" class="slide" [class]="currentSlide.transition"></iframe>
-</div>
