@@ -4,9 +4,7 @@
       <div class="slide-container">
         <iframe [src]="slide.url | safeUrl" width="200" height="150"></iframe>
         <div class="slide-time">{{ slide.slideTime }} seconds</div>
-        <button class="edit-button" aria-label="Edit slide" (click)="editSlide(i)">
-          ✎
-        </button>
+        <button class="edit-button" (click)="editSlide(i)">✎ Edit</button>
       </div>
     </div>
   </div>
@@ -14,3 +12,41 @@
 <ng-template #noSlides>
   <p>No slides available. Please add some slides.</p>
 </ng-template>
+
+<app-popup [(visible)]="showForm" title="Edit Slide">
+  <form (ngSubmit)="onSubmit()" #slideForm="ngForm">
+    <div>
+      <label for="url">Slide URL:</label>
+      <input
+        type="url"
+        id="url"
+        name="url"
+        [(ngModel)]="newSlide.url"
+        required
+      />
+    </div>
+    <div>
+      <label for="slideTime">Slide Time (seconds):</label>
+      <input
+        type="number"
+        id="slideTime"
+        name="slideTime"
+        [(ngModel)]="newSlide.slideTime"
+        required
+      />
+    </div>
+    <div>
+      <label for="transition">Transition:</label>
+      <select
+        id="transition"
+        name="transition"
+        [(ngModel)]="newSlide.transition"
+        required
+      >
+        <option value="fade">Fade</option>
+        <option value="slide">Slide</option>
+      </select>
+    </div>
+    <button type="submit" [disabled]="!slideForm.form.valid">Save</button>
+  </form>
+</app-popup>
