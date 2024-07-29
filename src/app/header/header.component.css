@@ -58,3 +58,13 @@ button:active {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+input, select {
+    display: block;
+    width: 95%;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: .125rem;
+    font-size: 1em;
+}
