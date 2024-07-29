@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PopupComponent } from '../popup/popup.component';
+import { SlideService } from '../slide.service';
 import { ISlide } from '../ISlide';
 
 @Component({
@@ -12,6 +13,8 @@ import { ISlide } from '../ISlide';
 export class HeaderComponent {
   showSettings: boolean = false;
   showForm: boolean = false;
+
+  constructor(private slideService: SlideService) {}
 
   startSlideShow() {
     // Implement start slideshow functionality
@@ -27,13 +30,21 @@ export class HeaderComponent {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       const file = input.files[0];
-      // Implement file import functionality
-      console.log('File selected:', file.name);
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        try {
+          const slides: ISlide[] = JSON.parse(e.target.result);
+          this.slideService.replaceSlides(slides);
+          console.log('Slides imported successfully:', slides);
+        } catch (error) {
+          console.error('Error parsing JSON:', error);
+        }
+      };
+      reader.readAsText(file);
     }
   }
 
   deleteSlides() {
-    // Implement delete slides functionality
-    throw new Error('Method not implemented.');
+    this.slideService.replaceSlides([]);
   }
 }
