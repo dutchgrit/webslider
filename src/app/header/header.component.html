@@ -14,6 +14,23 @@
     </nav>
 
     <app-popup [(visible)]="showForm" title="Add slide">
-        <p>header works!</p>
+        <form (ngSubmit)="onSubmit()" #slideForm="ngForm">
+            <div>
+                <label for="url">Slide URL:</label>
+                <input type="url" id="url" name="url" [(ngModel)]="newSlide.url" required>
+            </div>
+            <div>
+                <label for="slideTime">Slide Time (seconds):</label>
+                <input type="number" id="slideTime" name="slideTime" [(ngModel)]="newSlide.slideTime" required>
+            </div>
+            <div>
+                <label for="transition">Transition:</label>
+                <select id="transition" name="transition" [(ngModel)]="newSlide.transition" required>
+                    <option value="fade">Fade</option>
+                    <option value="slide">Slide</option>
+                </select>
+            </div>
+            <button type="submit" [disabled]="!slideForm.form.valid">Add Slide</button>
+        </form>
     </app-popup>
 </header>

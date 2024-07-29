@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { PopupComponent } from '../popup/popup.component';
 import { SlideService } from '../slide.service';
 import { ISlide } from '../ISlide';
@@ -6,14 +7,21 @@ import { ISlide } from '../ISlide';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [PopupComponent],
+  imports: [ PopupComponent, FormsModule ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
   showForm: boolean = false;
+  newSlide: ISlide = { url: '', slideTime: 0, transition: 'fade' };
 
   constructor(private slideService: SlideService) {}
+
+  onSubmit() {
+    this.slideService.addSlide(this.newSlide);
+    this.newSlide = { url: '', slideTime: 0, transition: 'fade' }; // Reset the form
+    this.showForm = false; // Close the form popup
+  }
 
   startSlideShow() {
     // Implement start slideshow functionality
