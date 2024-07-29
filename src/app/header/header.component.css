@@ -3,26 +3,6 @@ nav {
     direction: rtl;
 }
 
-button {
-    background: #ec6533;
-    border: none;
-    padding: .84rem 2.14rem;
-    margin: auto .2rem;
-    color: #FFF;
-    border-radius: .125rem;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background: #f07a4d;
-}
-
-button:active {
-    background: #d9551d;
-}
-
 .dropdown {
     position: relative;
     display: inline-block;

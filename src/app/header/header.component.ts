@@ -9,7 +9,10 @@ import { ISlide } from '../ISlide';
   standalone: true,
   imports: [ PopupComponent, FormsModule ],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
+  styleUrls: [
+    './header.component.css',
+    '../button.css'
+  ],
 })
 export class HeaderComponent {
   showForm: boolean = false;

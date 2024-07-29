@@ -19,7 +19,10 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
     PopupComponent,
   ],
   templateUrl: './slide-list.component.html',
-  styleUrls: ['./slide-list.component.css'],
+  styleUrls: [
+    './slide-list.component.css',
+    '../button.css'
+  ],
 })
 export class SlideListComponent implements OnInit {
   slides: ISlide[] = [];
