@@ -27,4 +27,11 @@ export class SlideListComponent implements OnInit {
   drop(event: CdkDragDrop<ISlide[]>): void {
     moveItemInArray(this.slides, event.previousIndex, event.currentIndex);
   }
+
+  editSlide(index: number): void {
+    const slide = this.slides[index];
+    // Implement the edit functionality here
+    // For example, you can navigate to an edit page or open a modal
+    console.log('Editing slide', index, slide);
+  }
 }
