@@ -8,14 +8,34 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 1rem;
-  background-color: #f9f9f9;
+  position: relative;
 }
 
-.slide-item iframe {
+.slide-container {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+}
+
+.slide-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   border: none;
+  
+}
+
+.slide-time {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
 }
 
 .slide-info {
