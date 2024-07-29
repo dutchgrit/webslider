@@ -1,36 +1,63 @@
 <header>
-    <nav>
-        <button (click)="startSlideShow()" aria-label="Start slideshow">Start slideshow</button>
-        <button (click)="showForm = !showForm" aria-label="Add slide">Add slide</button>
-        <div class="dropdown">
-            <button aria-label="Settings">Settings</button>
-            <div class="dropdown-content">
-                <a href="#" (click)="downloadSlides()">Download Slides</a>
-                <label for="uploadSlides">Import Slides</label>
-                <input type="file" id="uploadSlides" (change)="importSlides($event)">
-                <a href="#" (click)="deleteSlides()">Delete All Slides</a>
-            </div>
-        </div>
-    </nav>
+  <nav>
+    <button (click)="startSlideShow()" aria-label="Start slideshow">
+      {{ isSlideshowRunning ? "Stop slideshow" : "Start slideshow" }}
+    </button>
+    <button (click)="showForm = !showForm" aria-label="Add slide">
+      Add slide
+    </button>
+    <div class="dropdown">
+      <button aria-label="Settings">Settings</button>
+      <div class="dropdown-content">
+        <a href="#" (click)="downloadSlides()">Download Slides</a>
+        <label for="uploadSlides">Import Slides</label>
+        <input type="file" id="uploadSlides" (change)="importSlides($event)" />
+        <a href="#" (click)="deleteSlides()">Delete All Slides</a>
+      </div>
+    </div>
+  </nav>
 
-    <app-popup [(visible)]="showForm" title="Add slide">
-        <form (ngSubmit)="onSubmit()" #slideForm="ngForm">
-            <div>
-                <label for="url">Slide URL:</label>
-                <input type="url" id="url" name="url" [(ngModel)]="newSlide.url" required>
-            </div>
-            <div>
-                <label for="slideTime">Slide Time (seconds):</label>
-                <input type="number" id="slideTime" name="slideTime" [(ngModel)]="newSlide.slideTime" required>
-            </div>
-            <div>
-                <label for="transition">Transition:</label>
-                <select id="transition" name="transition" [(ngModel)]="newSlide.transition" required>
-                    <option value="fade">Fade</option>
-                    <option value="slide">Slide</option>
-                </select>
-            </div>
-            <button type="submit" [disabled]="!slideForm.form.valid">Add Slide</button>
-        </form>
-    </app-popup>
+  <app-popup [(visible)]="showForm" title="Add slide">
+    <form (ngSubmit)="onSubmit()" #slideForm="ngForm">
+      <div>
+        <label for="url">Slide URL:</label>
+        <input
+          type="url"
+          id="url"
+          name="url"
+          [(ngModel)]="newSlide.url"
+          required
+        />
+      </div>
+      <div>
+        <label for="slideTime">Slide Time (seconds):</label>
+        <input
+          type="number"
+          id="slideTime"
+          name="slideTime"
+          [(ngModel)]="newSlide.slideTime"
+          required
+        />
+      </div>
+      <div>
+        <label for="transition">Transition:</label>
+        <select
+          id="transition"
+          name="transition"
+          [(ngModel)]="newSlide.transition"
+          required
+        >
+          <option value="fade">Fade</option>
+          <option value="slide">Slide</option>
+        </select>
+      </div>
+      <button type="submit" [disabled]="!slideForm.form.valid">
+        Add Slide
+      </button>
+    </form>
+  </app-popup>
 </header>
+
+<div *ngIf="currentSlide" class="slide-container">
+  <iframe [src]="currentSlide.url | safeUrl" class="slide" [class]="currentSlide.transition"></iframe>
+</div>
