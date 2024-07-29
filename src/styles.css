@@ -21,7 +21,7 @@ app-root {
     width: 100%;
 }
 
-header, main, footer {
+header, section, footer {
     padding: .5rem 1rem;
 }
 

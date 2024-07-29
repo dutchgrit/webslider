@@ -15,7 +15,7 @@ export class HeaderComponent {
   showForm: boolean = false;
   newSlide: ISlide = { url: '', slideTime: 0, transition: 'fade' };
 
-  constructor(public slideService: SlideService) {}
+  constructor(private slideService: SlideService) {}
 
   onSubmit() {
     this.slideService.addSlide(this.newSlide);
@@ -24,11 +24,7 @@ export class HeaderComponent {
   }
 
   startSlideShow() {
-    if (this.slideService.isSlideshowRunning()) {
-      this.slideService.stopSlideShow();
-    } else {
-      this.slideService.startSlideShow((slide) => {});
-    }
+    this.slideService.startSlideShow((_) => {});
   }
 
   downloadSlides() {

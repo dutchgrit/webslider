@@ -1,17 +1,23 @@
-<div *ngIf="slides.length > 0; else noSlides">
-  <div class="slide-grid" cdkDropList (cdkDropListDropped)="drop($event)">
-    <div class="slide-item" *ngFor="let slide of slides; let i = index" cdkDrag>
-      <div class="slide-container">
-        <iframe [src]="slide.url | safeUrl" width="200" height="150"></iframe>
-        <div class="slide-time">{{ slide.slideTime }} seconds</div>
-        <button class="edit-button" (click)="editSlide(i)">✎</button>
+<section>
+  <div *ngIf="slides.length > 0; else noSlides">
+    <div class="slide-grid" cdkDropList (cdkDropListDropped)="drop($event)">
+      <div
+        class="slide-item"
+        *ngFor="let slide of slides; let i = index"
+        cdkDrag
+      >
+        <div class="slide-container">
+          <iframe [src]="slide.url | safeUrl" width="200" height="150"></iframe>
+          <div class="slide-time">{{ slide.slideTime }} seconds</div>
+          <button class="edit-button" (click)="editSlide(i)">✎</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<ng-template #noSlides>
-  <p>No slides available. Please add some slides.</p>
-</ng-template>
+  <ng-template #noSlides>
+    <p>No slides available. Please add some slides.</p>
+  </ng-template>
+</section>
 
 <app-popup [(visible)]="showForm" title="Edit Slide">
   <form (ngSubmit)="onSubmit()" #slideForm="ngForm">
