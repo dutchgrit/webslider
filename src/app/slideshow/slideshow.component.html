@@ -1,4 +1,4 @@
-<div class="slide-container">
+<div class="slide-container" (click)="stopSlideShow()">
   <ng-container *ngFor="let slide of slides; let i = index">
     <iframe
       [src]="slide.url | safeUrl"
