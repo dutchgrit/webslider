@@ -1,5 +1,6 @@
 .overlay {
   position: fixed;
+  z-index: 98;
   top: 0;
   left: 0;
   width: 100%;
@@ -12,6 +13,7 @@
 
 .content {
   position: relative;
+  z-index: 99;
   background-color: #fff;
   padding: 1rem;
   border-radius: .125rem;
