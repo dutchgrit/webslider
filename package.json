@@ -1,6 +1,6 @@
 {
   "name": "web-slide",
-  "version": "0.0.0",
+  "version": "0.0.1   ",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
-  "private": true,
+  "private": false,
+  "license": "MIT",
   "dependencies": {
     "@angular/animations": "^18.1.0",
     "@angular/cdk": "^18.1.2",
