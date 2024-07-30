@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SlideService } from '../slide.service';
 import { PopupComponent } from '../popup/popup.component';
+import { AboutComponent } from '../about/about.component';
 import { ISlide } from '../ISlide';
 import { SafeUrlPipe } from '../safe-url.pipe';
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -17,6 +18,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
     SafeUrlPipe,
     DragDropModule,
     PopupComponent,
+    AboutComponent
   ],
   templateUrl: './slide-list.component.html',
   styleUrls: [

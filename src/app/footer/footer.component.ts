@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { PopupComponent } from '../popup/popup.component';
+import { AboutComponent } from '../about/about.component';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [PopupComponent],
+  imports: [PopupComponent, AboutComponent],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css'],
 })
