@@ -41,18 +41,6 @@
         required
       />
     </div>
-    <div>
-      <label for="transition">Transition:</label>
-      <select
-        id="transition"
-        name="transition"
-        [(ngModel)]="newSlide.transition"
-        required
-      >
-        <option value="fade">Fade</option>
-        <option value="slide">Slide</option>
-      </select>
-    </div>
     <button type="submit" [disabled]="!slideForm.form.valid">Save</button>
   </form>
 </app-popup>
