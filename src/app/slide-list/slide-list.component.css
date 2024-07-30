@@ -93,3 +93,7 @@ select {
   border-radius: 0.125rem;
   font-size: 1em;
 }
+
+.del-btn {
+  float: right;
+}

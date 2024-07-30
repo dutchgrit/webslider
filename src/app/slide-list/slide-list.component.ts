@@ -59,4 +59,10 @@ export class SlideListComponent implements OnInit {
     this.newSlide = { url: '', slideTime: 0, transition: 'fade' };
     this.editIndex = null;
   }
+
+  deleteSlide() {
+    if (this.editIndex !== null) {
+      this.slideService.removeSlide(this.editIndex);
+    }
+  }
 }
