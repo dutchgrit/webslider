@@ -13,7 +13,7 @@ import { ISlide } from '../ISlide';
 })
 export class HeaderComponent {
   showForm: boolean = false;
-  newSlide: ISlide = { url: '', slideTime: 0, transition: 'fade' };
+  newSlide: ISlide = { url: '', slideTime: 5, transition: 'fade' };
 
   constructor(private slideService: SlideService) {}
 
