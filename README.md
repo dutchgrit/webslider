@@ -1,3 +1,5 @@
+[![Build and Deploy](https://github.com/nicksware/WebSlideShow/actions/workflows/static.yml/badge.svg)](https://github.com/nicksware/WebSlideShow/actions/workflows/static.yml)
+
 # WebSlide
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
