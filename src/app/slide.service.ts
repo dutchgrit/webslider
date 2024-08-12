@@ -78,10 +78,21 @@ export class SlideService {
     this.currentSlideIndex = 0;
     callback(slides[this.currentSlideIndex]);
 
-    this.slideInterval = setInterval(() => {
+    const startNextSlide = () => {
       this.currentSlideIndex = (this.currentSlideIndex + 1) % slides.length;
       callback(slides[this.currentSlideIndex]);
-    }, slides[this.currentSlideIndex].slideTime * 1000);
+
+      clearInterval(this.slideInterval);
+      this.slideInterval = setInterval(
+        startNextSlide,
+        slides[this.currentSlideIndex].slideTime * 1000
+      );
+    };
+
+    this.slideInterval = setInterval(
+      startNextSlide,
+      slides[this.currentSlideIndex].slideTime * 1000
+    );
   }
 
   stopSlideShow(): void {
