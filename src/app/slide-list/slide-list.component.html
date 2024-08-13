@@ -43,7 +43,11 @@
       />
     </div>
     <button type="submit" [disabled]="!slideForm.form.valid">Save</button>
-    <button class="del-btn" (click)="deleteSlide()" [disabled]="!slideForm.form.valid">
+    <button
+      class="del-btn"
+      (click)="deleteSlide()"
+      [disabled]="!slideForm.form.valid"
+    >
       Delete Slide
     </button>
   </form>

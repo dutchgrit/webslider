@@ -3,7 +3,10 @@
     <iframe
       [src]="slide.url | safeUrl"
       class="slide"
-      [ngClass]="{ 'visible': currentSlideIndex === i, 'hidden': currentSlideIndex !== i }"
+      [ngClass]="{
+        visible: currentSlideIndex === i,
+        hidden: currentSlideIndex !== i
+      }"
     ></iframe>
   </ng-container>
 </div>

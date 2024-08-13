@@ -12,7 +12,7 @@ describe('SlideService', () => {
 
     testSlides = [
       { url: 'http://example.com/1', slideTime: 5, transition: 'fade' },
-      { url: 'http://example.com/2', slideTime: 10, transition: 'slide' }
+      { url: 'http://example.com/2', slideTime: 10, transition: 'slide' },
     ];
 
     // Clear local storage and initialize it with test slides
@@ -32,7 +32,7 @@ describe('SlideService', () => {
   it('should replace all slides', () => {
     const newSlides: ISlide[] = [
       { url: 'http://example.com/a', slideTime: 5, transition: 'fade' },
-      { url: 'http://example.com/b', slideTime: 10, transition: 'slide' }
+      { url: 'http://example.com/b', slideTime: 10, transition: 'slide' },
     ];
     service.replaceSlides(newSlides);
     const slides = service.getSlides();

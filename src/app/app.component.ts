@@ -9,9 +9,15 @@ import { SlideService } from './slide.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, FooterComponent, HeaderComponent, SlideListComponent, SlideshowComponent],
+  imports: [
+    CommonModule,
+    FooterComponent,
+    HeaderComponent,
+    SlideListComponent,
+    SlideshowComponent,
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   constructor(public slideService: SlideService) {}

@@ -22,16 +22,17 @@ export class SlideshowComponent implements OnInit, OnDestroy {
   constructor(private slideService: SlideService) {}
 
   ngOnInit() {
-    this.slidesSubscription = this.slideService.slides$.subscribe(slides => {
+    this.slidesSubscription = this.slideService.slides$.subscribe((slides) => {
       this.slides = slides;
       if (this.slides.length > 0 && !this.isSlideshowRunning) {
         this.startSlideShow();
       }
     });
 
-    this.slideshowRunningSubscription = this.slideService.slideshowRunning$.subscribe(isRunning => {
-      this.isSlideshowRunning = isRunning;
-    });
+    this.slideshowRunningSubscription =
+      this.slideService.slideshowRunning$.subscribe((isRunning) => {
+        this.isSlideshowRunning = isRunning;
+      });
   }
 
   ngOnDestroy() {
@@ -45,7 +46,7 @@ export class SlideshowComponent implements OnInit, OnDestroy {
   }
 
   updateSlide(slide: ISlide) {
-    this.currentSlideIndex = this.slides.findIndex(s => s === slide);
+    this.currentSlideIndex = this.slides.findIndex((s) => s === slide);
   }
 
   startSlideShow() {

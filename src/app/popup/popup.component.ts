@@ -1,4 +1,10 @@
-import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  Input,
+  Output,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -20,7 +26,11 @@ export class PopupComponent {
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent): void {
-    if (this.visible && !this.isClickInsidePopup(event) && !this.isInputFocused()) {
+    if (
+      this.visible &&
+      !this.isClickInsidePopup(event) &&
+      !this.isInputFocused()
+    ) {
       this.close();
     }
   }
@@ -34,7 +44,12 @@ export class PopupComponent {
     const popupElement = document.querySelector('.content');
     if (popupElement) {
       const activeElement = document.activeElement;
-      return popupElement.contains(activeElement) && (activeElement instanceof HTMLInputElement || activeElement instanceof HTMLTextAreaElement || activeElement instanceof HTMLSelectElement);
+      return (
+        popupElement.contains(activeElement) &&
+        (activeElement instanceof HTMLInputElement ||
+          activeElement instanceof HTMLTextAreaElement ||
+          activeElement instanceof HTMLSelectElement)
+      );
     }
     return false;
   }
