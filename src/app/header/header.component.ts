@@ -19,7 +19,7 @@ export class HeaderComponent {
 
   onSubmit() {
     this.slideService.addSlide(this.newSlide);
-    this.newSlide = { url: '', slideTime: 0, transition: 'fade' };
+    this.newSlide = { url: '', slideTime: 5, transition: 'fade' };
     this.showForm = false;
   }
 
