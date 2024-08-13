@@ -30,7 +30,7 @@ nav {
 .dropdown-content a:hover,
 .dropdown-content label:hover {
   background-color: #f1f1f1;
-  color: #ec6533;
+  color: var(--primary);
 }
 
 .dropdown-content input[type="file"] {

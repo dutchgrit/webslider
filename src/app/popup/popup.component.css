@@ -14,10 +14,10 @@
 .content {
   position: relative;
   z-index: 4;
-  background-color: #fff;
+  background-color: var(--primary-background);
   padding: 1rem;
   border-radius: 0.125rem;
-  color: #000;
+  color: var(--text);
   width: 90%;
   max-width: 800px;
   max-height: 90%;

@@ -1,3 +1,20 @@
+:root {
+  --primary-background: #FFF;
+  --secondary-background: #f7f7f7;
+  --primary: #ec6533;
+  --secondary: #f07a4d;
+  --text: #000;
+  --link: #007bff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-background: #1c1c1b;
+    --secondary-background: #323231;
+    --text: #f7f7f7;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,8 +24,8 @@
 html,
 body {
   height: 100%;
-  background-color: #1c1c1b;
-  color: #fff;
+  background-color: var(--primary-background);
+  color: var(--text);
 }
 
 body {
@@ -30,7 +47,7 @@ footer {
 
 header,
 footer {
-  background-color: #323231;
+  background-color: var(--secondary-background);
 }
 
 main {
@@ -44,5 +61,5 @@ a {
 h2,
 a:hover,
 a:active {
-  color: #ec6533 !important;
+  color: var(--primary) !important;
 }
