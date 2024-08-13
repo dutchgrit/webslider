@@ -20,7 +20,7 @@ export class PopupComponent {
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent): void {
-    if (this.visible && !this.isClickInsidePopup(event)) {
+    if (this.visible && !this.isClickInsidePopup(event) && !this.isInputFocused()) {
       this.close();
     }
   }
@@ -28,5 +28,14 @@ export class PopupComponent {
   private isClickInsidePopup(event: MouseEvent): boolean {
     const popupElement = document.querySelector('.content');
     return popupElement ? popupElement.contains(event.target as Node) : false;
+  }
+
+  private isInputFocused(): boolean {
+    const popupElement = document.querySelector('.content');
+    if (popupElement) {
+      const activeElement = document.activeElement;
+      return popupElement.contains(activeElement) && (activeElement instanceof HTMLInputElement || activeElement instanceof HTMLTextAreaElement || activeElement instanceof HTMLSelectElement);
+    }
+    return false;
   }
 }
