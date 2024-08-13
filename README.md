@@ -1,4 +1,4 @@
-[![Build and Deploy](https://github.com/nicksware/WebSlideShow/actions/workflows/static.yml/badge.svg)](https://github.com/nicksware/WebSlideShow/actions/workflows/static.yml)
+[![Build and Deploy](https://github.com/dutchgrit/webslider/actions/workflows/static.yml/badge.svg)](https://github.com/dutchgrit/webslider/actions/workflows/static.yml)
 
 # WebSlide
 
